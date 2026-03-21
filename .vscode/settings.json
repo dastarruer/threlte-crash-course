@@ -1,13 +1,11 @@
 {
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
-  "svelte.language-server.ls-path": "./node_modules/.bin/svelte-language-server",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "tailwindCSS.includeLanguages": {
-    "svelte": "html"
-  },
-  "js/ts.tsdk.path": "./node_modules/typescript/lib"
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"tailwindCSS.includeLanguages": {
+		"svelte": "html"
+	}
 }

@@ -1,7 +1,7 @@
 {
-  "recommendations": [
-    "svelte.svelte-vscode",
-    "burke-development.sveltedoc",
-    "esbenp.prettier-vscode",
-  ]
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"burke-development.sveltedoc",
+		"esbenp.prettier-vscode"
+	]
 }
