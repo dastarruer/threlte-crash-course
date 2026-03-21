@@ -8,14 +8,14 @@
     name = "svelte-format";
     runtimeInputs = [pkgs.svelte-check];
     text = ''
-      svelte-check --fail-on-warnings --workspace ${config.git.root}/app --tsconfig ${config.git.root}/app/tsconfig.json
+      svelte-check --fail-on-warnings --workspace ${config.git.root}/app --tsconfig ${config.git.root}/tsconfig.json
     '';
   };
   npm-format = pkgs.writeShellApplication {
     name = "npm-format";
     runtimeInputs = [pkgs.nodejs_latest];
     text = ''
-      cd "${config.git.root}/app"
+      cd "${config.git.root}"
       npm run format
     '';
   };
