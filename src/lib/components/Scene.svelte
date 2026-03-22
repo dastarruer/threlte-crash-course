@@ -1,7 +1,14 @@
 <script lang="ts">
-	import { T } from '@threlte/core';
+	import { T, useTask } from '@threlte/core';
 	import { interactivity } from '@threlte/extras';
 	import { Spring } from 'svelte/motion';
+
+	let rotation: number = $state(0);
+
+	// After every frame, multiply the time between the current and last frame (delta) by 0.5, and add that to rotation
+	useTask((delta) => {
+		rotation += delta * 0.5;
+	});
 
 	interactivity();
 	const scale = new Spring(1);
@@ -19,13 +26,14 @@
 
 <T.Mesh
 	scale={scale.current}
+	rotation.y={rotation}
 	onpointerenter={() => (scale.target = 0.5)}
 	onpointerleave={() => (scale.target = 1)}
 	position.y={2}
 	castShadow
 >
 	<T.SphereGeometry args={[2, 32, 32]} />
-	<T.MeshStandardMaterial color="#ff6467" />
+	<T.MeshStandardMaterial color="#ff6467" wireframe />
 </T.Mesh>
 
 <!-- This plane cannot be seen without the PerspectiveCamera -->
