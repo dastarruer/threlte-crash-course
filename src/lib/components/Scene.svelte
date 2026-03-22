@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
+	import { interactivity } from '@threlte/extras';
+	import { Spring } from 'svelte/motion';
+
+	interactivity();
+	const scale = new Spring(1);
 </script>
 
 <T.PerspectiveCamera
@@ -12,7 +17,13 @@
 <T.DirectionalLight position={[10, 20, 10]} intensity={2} castShadow />
 <T.AmbientLight color="#d6efff" />
 
-<T.Mesh position.y={2} castShadow>
+<T.Mesh
+	scale={scale.current}
+	onpointerenter={() => (scale.target = 0.5)}
+	onpointerleave={() => (scale.target = 1)}
+	position.y={2}
+	castShadow
+>
 	<T.SphereGeometry args={[2, 32, 32]} />
 	<T.MeshStandardMaterial color="#ff6467" />
 </T.Mesh>
