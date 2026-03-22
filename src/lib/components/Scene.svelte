@@ -3,6 +3,8 @@
 	import { interactivity, OrbitControls } from '@threlte/extras';
 	import { Spring } from 'svelte/motion';
 
+	let autoRotate = $state(true);
+
 	let rotation: number = $state(0);
 
 	// After every frame, multiply the time between the current and last frame (delta) by 0.5, and add that to rotation
@@ -20,7 +22,12 @@
 	// No matter where the camera moves, always keep the mesh centered
 	oncreate={(ref) => ref.lookAt(0, 0, 0)}
 >
-	<OrbitControls autoRotate enableDamping />
+	<OrbitControls
+		{autoRotate}
+		autoRotateSpeed={0.5}
+		enableDamping
+		onstart={() => (autoRotate = false)}
+	/>
 </T.PerspectiveCamera>
 
 <T.DirectionalLight position={[10, 20, 10]} intensity={2} castShadow />
