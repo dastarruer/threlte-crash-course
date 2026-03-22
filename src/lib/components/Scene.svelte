@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T, useTask } from '@threlte/core';
-	import { interactivity } from '@threlte/extras';
+	import { interactivity, OrbitControls } from '@threlte/extras';
 	import { Spring } from 'svelte/motion';
 
 	let rotation: number = $state(0);
@@ -19,7 +19,9 @@
 	position={[14, 10, 0]}
 	// No matter where the camera moves, always keep the mesh centered
 	oncreate={(ref) => ref.lookAt(0, 0, 0)}
-/>
+>
+	<OrbitControls autoRotate enableDamping />
+</T.PerspectiveCamera>
 
 <T.DirectionalLight position={[10, 20, 10]} intensity={2} castShadow />
 <T.AmbientLight color="#d6efff" />
